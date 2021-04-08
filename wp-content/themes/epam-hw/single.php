@@ -77,7 +77,7 @@ get_header();
                   <?php
                   $args = array(
                     'post_id' => get_the_ID(),
-                    'post_status' => 'publish'
+                    'status'  => 'approve'
                   );
                   $post_comments = get_comments($args);
                   if ($post_comments) {
@@ -138,6 +138,7 @@ get_header();
                           <div class="col-lg-12">
                             <fieldset>
                               <button type="submit" id="form-submit" class="main-button"><?php _e('Submit', 'epam_hw'); ?></button>
+                              <p class="success" style="display:none;color:green"><?php _e('You comment send on moderation', 'epam_hw'); ?></p>
                             </fieldset>
                           </div>
                           <input type="hidden" name="post_id" value="<?php echo get_the_ID(); ?>">

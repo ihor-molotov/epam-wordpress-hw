@@ -149,5 +149,6 @@ function add_comment()
   ];
 
   wp_insert_comment(wp_slash($data));
+  echo 'success';
   wp_die();
 }

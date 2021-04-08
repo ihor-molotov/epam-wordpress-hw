@@ -108,7 +108,10 @@ jQuery(document).ready(function ($) {
                 comment_text: comment_text
             },
             success: function (data) {
-                console.log(data);
+                if (data == 'success') {
+                    $('.success').fadeIn();
+                    location.reload();
+                }
             }
         })
     });
