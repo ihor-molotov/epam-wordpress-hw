@@ -41,7 +41,7 @@ get_header();
                       </a>
                       <ul class="post-info">
                         <li><a href="#"><?php the_author(); ?></a></li>
-                        <li><a href="#"><?php the_date('M d, Y'); ?></a></li>
+                        <li><a href="#"><?php echo  get_the_date('M d, Y'); ?></a></li>
                         <?php $comments_count = get_comments_number(get_the_ID()); ?>
                         <li><a href="#"><?php echo $comments_count; ?> Comments</a></li>
                       </ul>

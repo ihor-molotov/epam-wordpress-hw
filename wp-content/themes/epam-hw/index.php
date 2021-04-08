@@ -56,23 +56,27 @@ $posts_per_page = 2;
                       </a>
                       <ul class="post-info">
                         <li><a href="#"><?php the_author(); ?></a></li>
-                        <li><a href="#"><?php the_date(); ?></a></li>
+                        <li><a href="#"><?php echo  get_the_date('M d, Y'); ?></a></li>
                         <?php
                         $comments_count = get_comments_number(get_the_ID()); ?>
                         <li><a href="#"><?php echo $comments_count; ?> Comments</a></li>
                       </ul>
-                      <p> <?php the_excerpt(); ?></p>
+                      <?php the_excerpt(); ?>
                       <div class="post-options">
                         <div class="row">
-                          <div class="col-lg-12">
-                            <ul class="post-tags">
-                              <?php for ($i = 0; $i < count($post_tags); $i++) :
-                                echo '<li><a href="' . get_home_url() . '/tag/' . $post_tags[$i]->name . '">' . $post_tags[$i]->name . '</a>';
-                                if ($i != count($post_tags) - 1) echo ',';
-                                echo '</li> ';
-                              endfor; ?>
-                            </ul>
-                          </div>
+                          <?php
+                          $post_tags = get_the_tags();
+                          if ($post_tags) : ?>
+                            <div class="col-6">
+                              <ul class="post-tags">
+                                <?php for ($i = 0; $i < count($post_tags); $i++) :
+                                  echo '<li><a href="' . get_home_url() . '/tag/' . $post_tags[$i]->name . '">' . $post_tags[$i]->name . '</a>';
+                                  if ($i != count($post_tags) - 1) echo ',';
+                                  echo '</li> ';
+                                endfor; ?>
+                              </ul>
+                            </div>
+                          <?php endif; ?>
                         </div>
                       </div>
                     </div>
