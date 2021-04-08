@@ -41,7 +41,7 @@ get_header();
                       </a>
                       <ul class="post-info">
                         <li><a href="#"><?php the_author(); ?></a></li>
-                        <li><a href="#"><?php the_date(); ?></a></li>
+                        <li><a href="#"><?php the_date('M d, Y'); ?></a></li>
                         <?php $comments_count = get_comments_number(get_the_ID()); ?>
                         <li><a href="#"><?php echo $comments_count; ?> Comments</a></li>
                       </ul>
@@ -88,7 +88,6 @@ get_header();
                         <h2><?php echo $comments_count . ' comments'; ?></h2>
                       </div>
                       <div class="content">
-
                         <ul>
                           <?php foreach ($post_comments as $comment) { ?>
                             <li>
@@ -156,7 +155,6 @@ get_header();
     </div>
   </div>
 </section>
-
 
 <?php get_template_part('template-parts/call-to-action'); ?>
 

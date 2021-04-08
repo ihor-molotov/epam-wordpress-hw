@@ -32,14 +32,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <?php
-          wp_nav_menu([
-            'theme_location'  => 'Primary',
-            'menu'            => 'menu',
-            'container'       => false,
-            'menu_class'      => 'navbar-nav ml-auto',
-          ]);
-          ?>
+          <?php wp_nav_menu(
+            array(
+              'theme_location' => 'header-menu',
+              'menu_class'     => 'navbar-nav ml-auto',
+              'container'      => 'ul',
+              'link_class'     => 'nav-link'
+            )
+          ) ?>
         </div>
       </div>
     </nav>

@@ -43,7 +43,14 @@ $posts_per_page = 2;
                       <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
                     </div>
                     <div class="down-content">
-                      <span>Lifestyle</span>
+                      <?php
+                      $category = get_the_category(get_the_ID());
+                      if ($category) {
+                        foreach ($category as $category_item) {
+                          echo "<span>$category_item->name</span>";
+                        }
+                      }
+                      ?>
                       <a href="<?php the_permalink(); ?>">
                         <h4><?php the_title(); ?></h4>
                       </a>
@@ -59,9 +66,11 @@ $posts_per_page = 2;
                         <div class="row">
                           <div class="col-lg-12">
                             <ul class="post-tags">
-                              <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Best Templates</a>,</li>
-                              <li><a href="#">TemplateMo</a></li>
+                              <?php for ($i = 0; $i < count($post_tags); $i++) :
+                                echo '<li><a href="' . get_home_url() . '/tag/' . $post_tags[$i]->name . '">' . $post_tags[$i]->name . '</a>';
+                                if ($i != count($post_tags) - 1) echo ',';
+                                echo '</li> ';
+                              endfor; ?>
                             </ul>
                           </div>
                         </div>
@@ -90,9 +99,9 @@ $posts_per_page = 2;
               </div>
             </div>
           </div>
-        <?php else : ?>
-          <p>Nothing Found : ( </p>
-        <?php endif; ?>
+        <?php else :
+          get_template_part('template-parts/no-posts');
+        endif; ?>
       </div>
       <?php get_sidebar(); ?>
     </div>

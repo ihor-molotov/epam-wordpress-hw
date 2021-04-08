@@ -31,16 +31,16 @@ if ($post_query->have_posts()) :
                 </a>
                 <ul class="post-info">
                   <li><a href="#"><?php the_author(); ?></a></li>
-                  <li><a href="#"><?php the_date(); ?></a></li>
+                  <li><a href="#"><?php the_date('M d, Y'); ?></a></li>
                   <?php $comments_count = get_comments_number(get_the_ID()); ?>
-                  <li><a href="#"><?php echo $comments_count; ?> Comments</a></li>
+                  <li><a href="#"><?php echo $comments_count . ' comments' ?></a></li>
                 </ul>
               </div>
             </div>
           </div>
         <?php endwhile; ?>
       <?php else :
-      echo '<p>Nothing found :( </p>';
+      get_template_part('template-parts/no-posts');
       ?>
       <?php wp_reset_postdata();
     endif; ?>
@@ -86,7 +86,7 @@ if ($post_query->have_posts()) :
                         </a>
                         <ul class="post-info">
                           <li><a href="#"><?php the_author(); ?></a></li>
-                          <li><a href="#"><?php the_date('d,m,Y'); ?></a></li>
+                          <li><a href="#"><?php the_date('M d, Y'); ?></a></li>
                           <?php
                           $comments_count = get_comments_number(get_the_ID()); ?>
                           <li><a href="#"><?php echo $comments_count; ?> Comments</a></li>
@@ -121,13 +121,13 @@ if ($post_query->have_posts()) :
                   </div>
                 <?php endwhile; ?>
               <?php else :
-              echo '<p>Nothing found :( </p>';
+              get_template_part('template-parts/no-posts');
               ?>
               <?php wp_reset_postdata();
             endif; ?>
               <div class="col-lg-12" class="load_more">
                 <div class="main-button">
-                  <a class="loadmore_btn" href="/"><?php _e('View All Posts', 'epam_hw'); ?></a>
+                  <a class="loadmore_btn" href="<?php echo get_permalink(get_option('page_for_posts')); ?>"><?php _e('View All Posts', 'epam_hw'); ?></a>
                 </div>
               </div>
               </div>

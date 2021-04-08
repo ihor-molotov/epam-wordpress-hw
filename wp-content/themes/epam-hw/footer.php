@@ -22,7 +22,7 @@
   </div>
 </footer>
 
-<!-- <script language="text/Javascript">
+<script language="text/Javascript">
   cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
   function clearField(t) { //declaring the array outside of the
     if (!cleared[t.id]) { // function makes it static and global
@@ -31,7 +31,7 @@
       t.style.color = '#fff';
     }
   }
-</script> -->
+</script>
 
 </body>
 

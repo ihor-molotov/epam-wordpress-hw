@@ -12,7 +12,7 @@ if (!function_exists('epam_hw_setup')) :
     add_theme_support('post-thumbnails');
     register_nav_menus(
       array(
-        'menu' => esc_html__('Primary', 'epam_hw'),
+        'header-menu' => esc_html__('Primary', 'epam_hw'),
       )
     );
   }
