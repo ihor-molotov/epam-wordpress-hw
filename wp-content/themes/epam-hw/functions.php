@@ -128,3 +128,26 @@ function add_sidebar()
   );
 }
 add_action('widgets_init', 'add_sidebar');
+
+
+/**
+ * Add comment
+ */
+add_action('wp_ajax_add_comment', 'add_comment');
+add_action('wp_ajax_nopriv_add_comment', 'add_comment');
+function add_comment()
+{
+  $data = [
+    'comment_post_ID'      => 1,
+    'comment_author'       => $_POST['username'],
+    'comment_author_email' => $_POST['email'],
+    'comment_content'      => $_POST['comment_text'],
+    'comment_type'         => 'comment',
+    'comment_post_ID'      => $_POST['post_id'],
+    'comment_date'         => null,
+    'comment_approved'     => 0,
+  ];
+
+  wp_insert_comment(wp_slash($data));
+  wp_die();
+}

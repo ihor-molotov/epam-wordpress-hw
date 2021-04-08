@@ -26,6 +26,4 @@ if ($content) { ?>
     </div>
   </section>
 <?php } ?>
-
-
 <?php get_footer(); ?>
